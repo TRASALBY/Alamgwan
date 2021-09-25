@@ -1,15 +1,20 @@
 package org.trasalby.Alamgwan
 import android.os.AsyncTask
+import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import org.jetbrains.anko.find
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
-import org.jsoup.select.Elements
 import java.io.IOException
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,9 +22,15 @@ class MainActivity : AppCompatActivity() {
     lateinit var Lunch : TextView
     lateinit var Dinner : TextView
     lateinit var Week : TextView
+    lateinit var Previous : Button
+    lateinit var Next : Button
+    lateinit var Day : TextView
+    var week : String = ""
+    val cal = Calendar.getInstance()
 
     private val htmlPageUrl = "https://newgh.gnu.ac.kr/dorm/ad/fm/foodmenu/selectFoodMenuView.do"
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,10 +38,35 @@ class MainActivity : AppCompatActivity() {
         Breakfast = findViewById(R.id.Breakfast)
         Lunch = findViewById(R.id.Lunch)
         Dinner = findViewById(R.id.Dinner)
+        Day = findViewById(R.id.Day)
         Week = findViewById(R.id.week)
+        Previous = findViewById(R.id.previous)
+        Next = findViewById(R.id.next)
+        cal.time = Date()
+
+        val df : DateFormat = SimpleDateFormat("MM월 dd일")
+        Day.text = df.format(cal.time)
 
         val jsoupAsyncTask: JsoupAsyncTask = JsoupAsyncTask()
         jsoupAsyncTask.execute()
+        while (true){
+            Next.setOnClickListener {
+                cal.add(Calendar.DATE,+1)
+                Day.text = df.format(cal.time)
+            }
+            Previous.setOnClickListener {
+                cal.add(Calendar.DATE,-1)
+                Day.text = df.format(cal.time)
+            }
+            Day.setOnClickListener{
+                cal.time = Date()
+                Day.text = df.format(cal.time)
+            }
+            if(!week.equals("")){
+                Week.text = week
+                break
+            }
+        }
     }
     private inner class JsoupAsyncTask :
         AsyncTask<Void?, Void?, Void?>() {
@@ -41,8 +77,9 @@ class MainActivity : AppCompatActivity() {
         protected override fun doInBackground(vararg p0: Void?): Void? {
             try {
                 val doc: Document = Jsoup.connect(htmlPageUrl).get()
-                val week = doc.select("span.txt_p")
-                val test : String = Html.fromHtml(week.toString()).toString();
+                val week_day = doc.select("span.txt_p")
+                week = Html.fromHtml(week_day.toString()).toString();
+
 
 
                 val elements = doc.select("div.foodLst_wrap").select("tr")[1]
@@ -56,6 +93,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onPostExecute(result: Void?) {
+
         }
     }
 

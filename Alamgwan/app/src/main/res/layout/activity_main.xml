@@ -7,43 +7,47 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     >
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/week"
+        android:layout_gravity="center"
+        android:text="이번주"
+        android:textSize="20sp" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center">
         <Button
+            android:id="@+id/previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="어제"
+            android:text="이전"
             android:textSize="25sp"
             android:layout_gravity="center"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/week"
-                android:layout_gravity="center"
-                android:text="이번주"
-                android:textSize="35sp" />
+
 
             <TextView
+                android:id="@+id/Day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="#요일"
+                android:text="##월 ##일 #요일"
                 android:textSize="25sp" />
         </LinearLayout>
         <Button
+            android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="내일"
+            android:text="다음"
             android:textSize="25sp"
             android:layout_gravity="center"/>
     </LinearLayout>
