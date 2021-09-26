@@ -16,6 +16,12 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 
+//네트워크사용에서 비동기로 진행해야 한다는건 이해
+//비동기는 어떻게 사용해야 하는가
+// async 와 코루틴의 사용
+//코틀린에서 코루틴 사용법
+//크롤링된 데이터들을 구분하는 방법
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var Breakfast : TextView
