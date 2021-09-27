@@ -23,6 +23,10 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 import kotlin.collections.ArrayList
+import android.text.method.ScrollingMovementMethod
+
+
+
 
 //네트워크사용에서 비동기로 진행해야 한다는건 이해
 //비동기는 어떻게 사용해야 하는가
@@ -48,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Breakfast = findViewById(R.id.Breakfast)
+        Breakfast.movementMethod = ScrollingMovementMethod()
         Lunch = findViewById(R.id.Lunch)
         Dinner = findViewById(R.id.Dinner)
         Day = findViewById(R.id.Day)

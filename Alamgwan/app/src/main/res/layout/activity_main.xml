@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="이전"
-            android:textSize="25sp"
+            android:textSize="15sp"
             android:layout_gravity="center"/>
 
         <LinearLayout
@@ -32,8 +32,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:orientation="vertical">
-
-
 
             <TextView
                 android:id="@+id/Day"
@@ -43,114 +41,96 @@
                 android:text="##월 ##일 #요일"
                 android:textSize="25sp" />
         </LinearLayout>
+
         <Button
             android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="다음"
-            android:textSize="25sp"
+            android:textSize="15sp"
             android:layout_gravity="center"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="3"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        >
+        android:orientation="horizontal"
+        android:weightSum="3">
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_gravity="center"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:text="아침"
-                android:textSize="20dp"
-                android:gravity="center_horizontal"/>
+                android:textSize="20sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="4">
+                android:orientation="horizontal">
+
                 <TextView
+                    android:id="@+id/Breakfast"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/Breakfast1"
-                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:gravity="center_horizontal"
                     android:text="아침메뉴"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/Breakfast2"
-                    android:text="아침메뉴"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/Breakfast3"
-                    android:text="아침메뉴"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/Breakfast4"
-                    android:layout_weight="1"
-                    android:text="아침메뉴"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal"/>
+                    android:textSize="15sp" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:text="점심"
-                android:textSize="20dp"
-                android:gravity="center_horizontal"/>
+                android:textSize="20sp" />
+
             <TextView
+                android:id="@+id/Lunch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/Lunch"
+                android:scrollbars="vertical"
+                android:gravity="center_horizontal"
                 android:text="점심메뉴"
-                android:textSize="20sp"
-                android:gravity="center_horizontal"/>
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:text="저녁"
-                android:textSize="20dp"
-                android:gravity="center_horizontal"/>
+                android:textSize="20sp" />
+
             <TextView
+                android:id="@+id/Dinner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/Dinner"
+                android:scrollbars="vertical"
+                android:gravity="center_horizontal"
                 android:text="저녁메뉴"
-                android:textSize="20sp"
-                android:gravity="center_horizontal"/>
+                android:textSize="15sp" />
         </LinearLayout>
-</LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
