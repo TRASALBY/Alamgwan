@@ -72,13 +72,44 @@
                 android:text="아침"
                 android:textSize="20dp"
                 android:gravity="center_horizontal"/>
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/Breakfast"
-                android:text="아침메뉴"
-                android:textSize="10sp"
-                android:gravity="center_horizontal"/>
+                android:orientation="horizontal"
+                android:weightSum="4">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Breakfast1"
+                    android:layout_weight="1"
+                    android:text="아침메뉴"
+                    android:textSize="20sp"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/Breakfast2"
+                    android:text="아침메뉴"
+                    android:textSize="20sp"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/Breakfast3"
+                    android:text="아침메뉴"
+                    android:textSize="20sp"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Breakfast4"
+                    android:layout_weight="1"
+                    android:text="아침메뉴"
+                    android:textSize="20sp"
+                    android:gravity="center_horizontal"/>
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,7 +127,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/Lunch"
                 android:text="점심메뉴"
-                android:textSize="10sp"
+                android:textSize="20sp"
                 android:gravity="center_horizontal"/>
         </LinearLayout>
 
@@ -117,7 +148,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/Dinner"
                 android:text="저녁메뉴"
-                android:textSize="10sp"
+                android:textSize="20sp"
                 android:gravity="center_horizontal"/>
         </LinearLayout>
 </LinearLayout>
