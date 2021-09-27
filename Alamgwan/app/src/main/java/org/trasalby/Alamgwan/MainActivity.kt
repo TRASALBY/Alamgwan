@@ -24,8 +24,7 @@ import java.time.LocalDate
 import java.util.*
 import kotlin.collections.ArrayList
 import android.text.method.ScrollingMovementMethod
-
-
+import android.widget.Toast
 
 
 //네트워크사용에서 비동기로 진행해야 한다는건 이해
@@ -72,22 +71,26 @@ class MainActivity : AppCompatActivity() {
             var weekNum = cal.get(Calendar.DAY_OF_WEEK)-1
             setMenu(Breakfast, Lunch, Dinner, meal_menuList, weekNum)
             Next.setOnClickListener {
-                cal.add(Calendar.DATE, +1)
-                weekNum += 1
-                if(weekNum >7){
-                    weekNum %= 7
+                if(weekNum <6){
+                    cal.add(Calendar.DATE, +1)
+                    weekNum += 1
+                    Day.text = df.format(cal.time)
+                    setMenu(Breakfast, Lunch, Dinner, meal_menuList, weekNum)
+                }else{
+                    Toast.makeText(applicationContext, "마지막 요일입니다.", Toast.LENGTH_SHORT).show()
                 }
-                Day.text = df.format(cal.time)
-                setMenu(Breakfast, Lunch, Dinner, meal_menuList, weekNum)
+
             }
             Previous.setOnClickListener {
-                cal.add(Calendar.DATE, -1)
-                weekNum -= 1
-                if(weekNum < 0){
-                    weekNum + 7
+                if(weekNum > 0){
+                    cal.add(Calendar.DATE, -1)
+                    weekNum -= 1
+                    Day.text = df.format(cal.time)
+                    setMenu(Breakfast, Lunch, Dinner, meal_menuList, weekNum)
+                }else{
+                    Toast.makeText(applicationContext, "첫번째 요일입니다.", Toast.LENGTH_SHORT).show()
                 }
-                Day.text = df.format(cal.time)
-                setMenu(Breakfast, Lunch, Dinner, meal_menuList, weekNum)
+
             }
             Day.setOnClickListener {
                 cal.time = Date()
